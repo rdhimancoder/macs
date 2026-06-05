@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MACS Academy - Premier technology training institute offering industry-focused courses in Digital Marketing, Data Science, Full Stack Development, and more.">
+    <meta name="keywords" content="MACS Academy, training, courses, technology, placement, certification">
+    <meta name="author" content="MACS Academy">
+    <meta property="og:title" content="MACS Academy - Upgrade Yourself With Industry-Focused Training">
+    <meta property="og:description" content="20,000+ students trained | 500+ batches | 3000+ placements | Expert instructors">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=MACS+Academy">
+    <meta name="theme-color" content="#0A192F">
+    
+    <title>MACS Academy - Premium Technology Training Institute</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.css" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A192F;
+            --secondary: #00D4FF;
+            --accent: #7B61FF;
+            --highlight: #00FFB3;
+            --background: #050816;
+            --text: #FFFFFF;
+            --subtext: #AAB0C0;
+            --dark-card: rgba(10, 25, 47, 0.8);
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(123, 97, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Scroll Progress Bar */
+        #scrollProgress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent), var(--highlight));
+            width: 0%;
+            z-index: 9999;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--subtext);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(5, 8, 22, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.shrink {
+            padding: 0.5rem 2rem;
+            background: rgba(5, 8, 22, 0.95);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: var(--subtext) !important;
+            font-weight: 500;
+            position: relative;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-enroll {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: var(--primary) !important;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-enroll::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-enroll:hover::before {
+            left: 100%;
+        }
+
+        .btn-enroll:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #canvas-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-headline {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--text), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subheadline {
+            font-size: 1.3rem;
+            color: var(--subtext);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: left 0.3s ease;
+        }
+
+        .btn-primary-custom:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-secondary-custom:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary-custom:hover::before {
+            left: 0;
+        }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            counter-increment: stat;
+        }
+
+        .stat-label {
+            color: var(--subtext);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Particles Background */
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--subtext);
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        #about {
+            background: linear-gradient(180deg, rgba(10, 25, 47, 0.5) 0%, transparent 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect fill="url(%23pattern)" width="400" height="400"/></svg>');
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .about-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Courses Section */
+        #courses {
+            background: linear-gradient(180deg, transparent 0%, rgba(123, 97, 255, 0.05) 100%);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: var(--dark-card);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+
+        .course-card:hover {
+            background: rgba(10, 25, 47, 0.95);
+            border-color: var(--secondary);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2);
+        }
+
+        .course-card:hover::before {
+            opacity: 1;
+            top: -20%;
+            right: -20%;
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            position: relative;
+            z-index: 2;
+        }
+
+        .course-modules {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .course-module {
+            color: var(--subtext);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-module::before {
+            content: '✓';
+            color: var(--highlight);
+            font-weight: bold;
+            margin-right: 0.7rem;
+        }
+
+        .course-btn {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: var(--primary);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            margin-top: 1rem;
+        }
+
+        .course-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Why Choose Section */
+        #whychoose {
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.05) 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent), transparent);
+            border-radius: 20px 20px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .why-card:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--secondary);
+            transform: translateY(-10px);
+        }
+
+        .why-card:hover::before {
+            opacity: 1;
+        }
+
+        .why-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover .why-icon {
+            color: var(--accent);
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .why-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .why-card p {
+            margin: 0;
+        }
+
+        /* Parallax Section */
+        #parallax {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(123, 97, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .parallax-title {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .parallax-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .parallax-item {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .parallax-item:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .parallax-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Placements Section */
+        #placements {
+            background: linear-gradient(180deg, rgba(10, 25, 47, 0.5) 0%, transparent 100%);
+        }
+
+        .placements-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .swiper {
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        .placement-card {
+            background: var(--dark-card);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .placement-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .placement-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Counter Section */
+        #counters {
+            background: linear-gradient(180deg, transparent 0%, rgba(123, 97, 255, 0.1) 100%);
+        }
+
+        .counters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .counter-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .counter-number {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--secondary), var(--accent), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .counter-label {
+            font-size: 1.2rem;
+            color: var(--subtext);
+        }
+
+        /* Testimonials Section */
+        #testimonials {
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.05) 100%);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--dark-card);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--secondary);
+            background: rgba(10, 25, 47, 0.95);
+            transform: translateY(-10px);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .testimonial-info h4 {
+            margin: 0;
+        }
+
+        .testimonial-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .testimonial-stars {
+            color: var(--highlight);
+            margin-bottom: 0.5rem;
+        }
+
+        /* FAQ Section */
+        #faq {
+            background: linear-gradient(180deg, transparent 0%, rgba(123, 97, 255, 0.05) 100%);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .faq-item.active {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .faq-question h4 {
+            margin: 0;
+            flex: 1;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(180deg, rgba(10, 25, 47, 0.5) 0%, transparent 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail {
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-detail p {
+            line-height: 1.8;
+        }
+
+        .contact-socials {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: var(--glass);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            color: var(--text);
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--secondary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .form-group input::placeholder,
+        .form-group select::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--subtext);
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: var(--primary);
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            padding: 3rem 0 1rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-section a {
+            color: var(--subtext);
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            color: var(--subtext);
+        }
+
+        /* Scroll to Top Button */
+        #scrollTop {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border: none;
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        #scrollTop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+
+        #scrollTop.show {
+            display: flex;
+        }
+
+        /* Loading Screen */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(0, 212, 255, 0.2);
+            border-top: 4px solid var(--secondary);
+            border-right: 4px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .navbar {
+                padding: 1rem 1rem;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #scrollTop {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-headline {
+                font-size: 2rem;
+            }
+
+            .hero-subheadline {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .animate-on-scroll.animated {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Neon Effect */
+        .neon {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
+                         0 0 20px rgba(123, 97, 255, 0.3);
+        }
+
+        /* Glow Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Floating Animation */
+        .float {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Tilt Effect */
+        .tilt {
+            perspective: 1000px;
+        }
+
+        /* Additional responsive improvements */
+        @media (max-width: 992px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div id="scrollProgress"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">MACS Academy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#placements">Placements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#whychoose">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><button class="btn-enroll ms-3" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Enroll Now</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div id="canvas-container"></div>
+        <div id="particles"></div>
+        <div class="container hero-content">
+            <h1 class="hero-headline">Upgrade Yourself With MACS</h1>
+            <p class="hero-subheadline">Building a Better You Through Industry-Focused Technology Training</p>
+            <div class="hero-buttons">
+                <button class="btn-primary-custom" onclick="document.getElementById('courses').scrollIntoView({behavior: 'smooth'})">Explore Courses</button>
+                <button class="btn-secondary-custom" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Free Career Counseling</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number" data-target="20000">0</div>
+                    <div class="stat-label">Students Trained</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">Batches</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number" data-target="3000">0</div>
+                    <div class="stat-label">Students Placed</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number" data-target="4.8">0</div>
+                    <div class="stat-label">Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="section-title" data-aos="fade-up">Welcome to MACS Academy</h2>
+        <div class="about-grid" style="margin-top: 4rem;">
+            <div class="about-image" data-aos="fade-right"></div>
+            <div class="about-content" data-aos="fade-left">
+                <h3>Professional Computer Training Institute</h3>
+                <p>MACS Academy is a premier computer training institute offering industry-relevant courses, practical learning, certifications, and career-focused education. With over 20 years of experience, we've trained more than 20,000 students and placed over 3,000 graduates in leading companies.</p>
+                <div class="about-features">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-users"></i>
+                        <h4>Industry Experts</h4>
+                        <p>Trained by professionals with real-world experience</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-code"></i>
+                        <h4>Practical Training</h4>
+                        <p>100% hands-on learning with live projects</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-briefcase"></i>
+                        <h4>Placement Support</h4>
+                        <p>Dedicated support for job placements</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Certifications</h4>
+                        <p>Industry-recognized certificates</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="container">
+        <h2 class="section-title" data-aos="fade-up">Our Courses</h2>
+        <p class="section-subtitle" data-aos="fade-up">Industry-focused training programs designed to make you job-ready</p>
+        <div class="courses-grid">
+            <div class="course-card" data-aos="fade-up">
+                <h3 class="course-title">Digital Marketing</h3>
+                <div class="course-modules">
+                    <div class="course-module">SEO & SEM</div>
+                    <div class="course-module">Social Media Marketing</div>
+                    <div class="course-module">Google Ads & Analytics</div>
+                    <div class="course-module">Email Marketing</div>
+                </div>
+                <button class="course-btn">Learn More</button>
+            </div>
+
+            <div class="course-card" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="course-title">Data Analytics</h3>
+                <div class="course-modules">
+                    <div class="course-module">Advanced Excel</div>
+                    <div class="course-module">SQL & Databases</div>
+                    <div class="course-module">Python for Analytics</div>
+                    <div class="course-module">Power BI</div>
+                </div>
+                <button class="course-btn">Learn More</button>
+            </div>
+
+            <div class="course-card" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="course-title">Full Stack Development</h3>
+                <div class="course-modules">
+                    <div class="course-module">HTML, CSS, JavaScript</div>
+                    <div class="course-module">Bootstrap Framework</div>
+                    <div class="course-module">Python Backend</div>
+                    <div class="course-module">MySQL Database</div>
+                </div>
+                <button class="course-btn">Learn More</button>
+            </div>
+
+            <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="course-title">Data Science</h3>
+                <div class="course-modules">
+                    <div class="course-module">Machine Learning</div>
+                    <div class="course-module">Python Programming</div>
+                    <div class="course-module">Data Analytics</div>
+                    <div class="course-module">AI Integration</div>
+                </div>
+                <button class="course-btn">Learn More</button>
+            </div>
+
+            <div class="course-card" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="course-title">MIS</h3>
+                <div class="course-modules">
+                    <div class="course-module">Computer Basics</div>
+                    <div class="course-module">Advanced Excel</div>
+                    <div class="course-module">Tally ERP</div>
+                    <div class="course-module">MS Office Suite</div>
+                </div>
+                <button class="course-btn">Learn More</button>
+            </div>
+
+            <div class="course-card" data-aos="fade-up" data-aos-delay="500">
+                <h3 class="course-title">Ethical Hacking</h3>
+                <div class="course-modules">
+                    <div class="course-module">Cyber Security</div>
+                    <div class="course-module">Network Security</div>
+                    <div class="course-module">Penetration Testing</div>
+                    <div class="course-module">Secure Coding</div>
+                </div>
+                <button class="course-btn">Learn More</button>
+            </div>
+
+            <div class="course-card" data-aos="fade-up" data-aos-delay="600">
+                <h3 class="course-title">Graphic Design</h3>
+                <div class="course-modules">
+                    <div class="course-module">Adobe Photoshop</div>
+                    <div class="course-module">CorelDRAW</div>
+                    <div class="course-module">Illustrator</div>
+                    <div class="course-module">UI/UX Design</div>
+                </div>
+                <button class="course-btn">Learn More</button>
+            </div>
+
+            <div class="course-card" data-aos="fade-up" data-aos-delay="700">
+                <h3 class="course-title">Advanced Excel</h3>
+                <div class="course-modules">
+                    <div class="course-module">Pivot Tables</div>
+                    <div class="course-module">VLOOKUP & Formulas</div>
+                    <div class="course-module">Data Visualization</div>
+                    <div class="course-module">Dashboard Creation</div>
+                </div>
+                <button class="course-btn">Learn More</button>
+            </div>
+
+            <div class="course-card" data-aos="fade-up" data-aos-delay="800">
+                <h3 class="course-title">Tally ERP</h3>
+                <div class="course-modules">
+                    <div class="course-module">GST Configuration</div>
+                    <div class="course-module">Inventory Management</div>
+                    <div class="course-module">Accounting</div>
+                    <div class="course-module">Financial Reports</div>
+                </div>
+                <button class="course-btn">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section id="whychoose" class="container">
+        <h2 class="section-title" data-aos="fade-up">Why Choose MACS</h2>
+        <p class="section-subtitle" data-aos="fade-up">What makes us the premier choice for tech training</p>
+        <div class="features-grid">
+            <div class="why-card" data-aos="fade-up">
+                <div class="why-icon"><i class="fas fa-clock"></i></div>
+                <h3>20+ Years Experience</h3>
+                <p>Over two decades of excellence in tech education and training</p>
+            </div>
+
+            <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="why-icon"><i class="fas fa-award"></i></div>
+                <h3>Industry Certifications</h3>
+                <p>Globally recognized certificates from leading organizations</p>
+            </div>
+
+            <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="why-icon"><i class="fas fa-code"></i></div>
+                <h3>100% Practical Training</h3>
+                <p>Hands-on learning with real-world projects and applications</p>
+            </div>
+
+            <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="why-icon"><i class="fas fa-user-tie"></i></div>
+                <h3>Expert Trainers</h3>
+                <p>Industry professionals with years of practical experience</p>
+            </div>
+
+            <div class="why-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="why-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Placement Assistance</h3>
+                <p>Career support and job placement assistance</p>
+            </div>
+
+            <div class="why-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="why-icon"><i class="fas fa-robot"></i></div>
+                <h3>AI Integrated Courses</h3>
+                <p>Modern curriculum with AI and emerging technologies</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <section id="parallax">
+        <div class="container parallax-content">
+            <h2 class="parallax-title" data-aos="fade-up">Training For Real Success</h2>
+            <div class="parallax-grid">
+                <div class="parallax-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Practical Learning</h3>
+                    <p>Get hands-on experience with real-world projects</p>
+                </div>
+                <div class="parallax-item" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Real-World Projects</h3>
+                    <p>Work on industry-relevant projects and case studies</p>
+                </div>
+                <div class="parallax-item" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Industry-Ready Skills</h3>
+                    <p>Develop skills that employers are actively seeking</p>
+                </div>
+                <div class="parallax-item" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-star"></i>
+                    <h3>Career Transformation</h3>
+                    <p>Transform your career with our comprehensive programs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placements Section -->
+    <section id="placements" class="container">
+        <h2 class="section-title" data-aos="fade-up">Our Placement Partners</h2>
+        <p class="section-subtitle" data-aos="fade-up">Trusted by leading companies across the industry</p>
+        <div class="placements-container">
+            <div class="swiper" id="placementsSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="placement-card" data-aos="fade-up">
+                            <div class="placement-logo">Digital Lancers</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="placement-card" data-aos="fade-up">
+                            <div class="placement-logo">SGT University</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="placement-card" data-aos="fade-up">
+                            <div class="placement-logo">Enser Comm</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="placement-card" data-aos="fade-up">
+                            <div class="placement-logo">STG Solutions</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="placement-card" data-aos="fade-up">
+                            <div class="placement-logo">Tech Mahindra</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="placement-card" data-aos="fade-up">
+                            <div class="placement-logo">Digital Lancers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Counters -->
+    <section id="counters" class="container">
+        <h2 class="section-title" data-aos="fade-up">Our Achievements</h2>
+        <div class="counters-grid" style="margin-top: 4rem;">
+            <div class="counter-item" data-aos="fade-up">
+                <div class="counter-number" data-count="20000">0</div>
+                <div class="counter-label">Students Trained</div>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="counter-number" data-count="500">0</div>
+                <div class="counter-label">Batches Conducted</div>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="counter-number" data-count="3000">0</div>
+                <div class="counter-label">Students Placed</div>
+            </div>
+            <div class="counter-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="counter-number" data-count="4.8">0</div>
+                <div class="counter-label">Rating (out of 5)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="container">
+        <h2 class="section-title" data-aos="fade-up">Student Testimonials</h2>
+        <p class="section-subtitle" data-aos="fade-up">Hear from our successful graduates</p>
+        <div class="testimonials-container">
+            <div class="swiper" id="testimonialsSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card" data-aos="fade-up">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"MACS Academy transformed my career. The practical training and expert instructors helped me secure a great job within months. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">RK</div>
+                                <div class="testimonial-info">
+                                    <h4>Raj Kumar</h4>
+                                    <p>Full Stack Development</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card" data-aos="fade-up">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The data analytics course at MACS was incredible. Real projects, experienced trainers, and amazing placement support. I got placed in my dream company!"</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">PS</div>
+                                <div class="testimonial-info">
+                                    <h4>Priya Singh</h4>
+                                    <p>Data Analytics</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card" data-aos="fade-up">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"Best decision to join MACS for digital marketing. The industry insights and hands-on training made all the difference in my career transition."</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">AM</div>
+                                <div class="testimonial-info">
+                                    <h4>Aarav Mehta</h4>
+                                    <p>Digital Marketing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card" data-aos="fade-up">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The cybersecurity course was comprehensive and well-structured. Great mentors and excellent career support. Landed a job as a security analyst!"</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">VG</div>
+                                <div class="testimonial-info">
+                                    <h4>Vikram Gupta</h4>
+                                    <p>Ethical Hacking</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card" data-aos="fade-up">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"MACS Academy provided me with all the skills and confidence needed for data science. The project-based learning approach is fantastic!"</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">NK</div>
+                                <div class="testimonial-info">
+                                    <h4>Neha Kapoor</h4>
+                                    <p>Data Science</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container">
+        <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+        <div class="faq-container" style="margin-top: 4rem;">
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question">
+                    <h4>Why choose MACS Academy?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>MACS Academy stands out with 20+ years of experience, industry expert trainers, 100% practical training, and proven placement record. Our curriculum is regularly updated to match industry demands.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-question">
+                    <h4>Are certifications provided?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, all our courses come with industry-recognized certificates upon completion. These certificates are valued by employers across the industry.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-question">
+                    <h4>Is placement support available?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We provide comprehensive placement support including resume building, interview preparation, and job placements with leading companies.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-question">
+                    <h4>Are classes practical oriented?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, all our courses are 100% practical. You'll work on real-world projects, industry case studies, and hands-on assignments throughout the program.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="faq-question">
+                    <h4>Do you offer beginner-friendly courses?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we have courses for all levels - beginner, intermediate, and advanced. No prior experience required. Our instructors will guide you from basics to advanced concepts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+        <div class="contact-grid" style="margin-top: 4rem;">
+            <div class="contact-info" data-aos="fade-right">
+                <h3>Contact Information</h3>
+                <div class="contact-detail">
+                    <h4><i class="fas fa-building"></i> Address</h4>
+                    <p>MACS Academy<br>
+                    NM 4 & 5, Ground Floor<br>
+                    Opposite Union Bank<br>
+                    Old DLF Colony, Sector 14<br>
+                    Gurgaon, Haryana 122001</p>
+                </div>
+                <div class="contact-detail">
+                    <h4><i class="fas fa-envelope"></i> Email</h4>
+                    <p><a href="mailto:info@macsacademy.co.in">info@macsacademy.co.in</a></p>
+                </div>
+                <div class="contact-detail">
+                    <h4><i class="fas fa-phone"></i> Phone</h4>
+                    <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                </div>
+                <div class="contact-socials">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <form class="contact-form" data-aos="fade-left">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="+91" required>
+                </div>
+                <div class="form-group">
+                    <label>Course Interest</label>
+                    <select required>
+                        <option value="">Select a course</option>
+                        <option value="digital-marketing">Digital Marketing</option>
+                        <option value="data-analytics">Data Analytics</option>
+                        <option value="full-stack">Full Stack Development</option>
+                        <option value="data-science">Data Science</option>
+                        <option value="mis">MIS</option>
+                        <option value="ethical-hacking">Ethical Hacking</option>
+                        <option value="graphic-design">Graphic Design</option>
+                        <option value="advanced-excel">Advanced Excel</option>
+                        <option value="tally">Tally ERP</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="Tell us about yourself..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About MACS</h4>
+                    <p>Premier technology training institute with 20+ years of experience, providing industry-focused courses and placement support.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="#courses">Digital Marketing</a></li>
+                        <li><a href="#courses">Data Analytics</a></li>
+                        <li><a href="#courses">Full Stack Development</a></li>
+                        <li><a href="#courses">Data Science</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#placements">Placements</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="contact-socials">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MACS Academy. All Rights Reserved. | Designed with <span style="color: var(--highlight);">❤</span> by MACS</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out',
+            once: true
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Navbar Shrink Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shrink');
+            } else {
+                navbar.classList.remove('shrink');
+            }
+
+            // Scroll Progress Bar
+            const scrollProgress = document.getElementById('scrollProgress');
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+
+            // Scroll to Top Button
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+        });
+
+        // Three.js Background
+        if (document.getElementById('canvas-container')) {
+            const canvas = document.createElement('canvas');
+            const container = document.getElementById('canvas-container');
+            container.appendChild(canvas);
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.position.z = 5;
+
+            // Create floating spheres
+            const spheres = [];
+            const colors = [0x00D4FF, 0x7B61FF, 0x00FFB3];
+            
+            for (let i = 0; i < 5; i++) {
+                const geometry = new THREE.IcosahedronGeometry(Math.random() * 2 + 1, 4);
+                const material = new THREE.MeshPhongMaterial({
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    emissive: colors[Math.floor(Math.random() * colors.length)],
+                    wireframe: false
+                });
+                const sphere = new THREE.Mesh(geometry, material);
+                sphere.position.x = (Math.random() - 0.5) * 15;
+                sphere.position.y = (Math.random() - 0.5) * 15;
+                sphere.position.z = (Math.random() - 0.5) * 10;
+                sphere.velocity = {
+                    x: (Math.random() - 0.5) * 0.02,
+                    y: (Math.random() - 0.5) * 0.02,
+                    z: (Math.random() - 0.5) * 0.02
+                };
+                scene.add(sphere);
+                spheres.push(sphere);
+            }
+
+            // Lighting
+            const light = new THREE.PointLight(0x00D4FF, 1);
+            light.position.set(5, 5, 5);
+            scene.add(light);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+            scene.add(ambientLight);
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+
+                spheres.forEach(sphere => {
+                    sphere.rotation.x += sphere.velocity.x;
+                    sphere.rotation.y += sphere.velocity.y;
+                    sphere.rotation.z += sphere.velocity.z;
+
+                    sphere.position.x += sphere.velocity.x * 50;
+                    sphere.position.y += sphere.velocity.y * 50;
+                    sphere.position.z += sphere.velocity.z * 50;
+
+                    // Boundary check
+                    if (Math.abs(sphere.position.x) > 10) sphere.velocity.x *= -1;
+                    if (Math.abs(sphere.position.y) > 10) sphere.velocity.y *= -1;
+                    if (Math.abs(sphere.position.z) > 10) sphere.velocity.z *= -1;
+                });
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Particle Background
+        if (document.getElementById('particles')) {
+            const particlesCanvas = document.getElementById('particles');
+            if (particlesCanvas.tagName === 'DIV') {
+                const canvas = document.createElement('canvas');
+                particlesCanvas.appendChild(canvas);
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const particles = [];
+                const particleCount = 50;
+
+                class Particle {
+                    constructor() {
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                        this.size = Math.random() * 2 + 1;
+                        this.speedX = (Math.random() - 0.5) * 0.5;
+                        this.speedY = (Math.random() - 0.5) * 0.5;
+                        this.opacity = Math.random() * 0.5 + 0.2;
+                    }
+
+                    draw() {
+                        ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    update() {
+                        this.x += this.speedX;
+                        this.y += this.speedY;
+
+                        if (this.x < 0) this.x = canvas.width;
+                        if (this.x > canvas.width) this.x = 0;
+                        if (this.y < 0) this.y = canvas.height;
+                        if (this.y > canvas.height) this.y = 0;
+                    }
+                }
+
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+
+                function animateParticles() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    particles.forEach(particle => {
+                        particle.update();
+                        particle.draw();
+                    });
+                    requestAnimationFrame(animateParticles);
+                }
+                animateParticles();
+
+                window.addEventListener('resize', () => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                });
+            }
+        }
+
+        // Counter Animation
+        function countUp(element) {
+            const target = parseInt(element.getAttribute('data-target') || element.getAttribute('data-count'));
+            const duration = 2000;
+            const increment = target / (duration / 50);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toFixed(target > 100 ? 0 : 1);
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 50);
+        }
+
+        // Trigger counters on scroll
+        ScrollTrigger.create({
+            trigger: '#counters',
+            onEnter: () => {
+                document.querySelectorAll('[data-target], [data-count]').forEach(el => {
+                    if (el.textContent === '0') countUp(el);
+                });
+            },
+            once: true
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                document.querySelectorAll('.faq-item.active').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Initialize Swipers
+        const placementsSwiper = new Swiper('#placementsSwiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1
+                },
+                768: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                }
+            }
+        });
+
+        const testimonialsSwiper = new Swiper('#testimonialsSwiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1
+                },
+                768: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                }
+            }
+        });
+
+        // Parallax effect with GSAP
+        gsap.to('#parallax', {
+            scrollTrigger: {
+                trigger: '#parallax',
+                start: 'top center',
+                end: 'bottom center',
+                scrub: 1
+            },
+            y: -100,
+            duration: 1
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! We will contact you soon.');
+            e.target.reset();
+        });
+
+        // Course button interactions
+        document.querySelectorAll('.course-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Course enrollment coming soon!');
+            });
+        });
+
+        // Mobile menu close on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navToggle = document.querySelector('.navbar-toggler');
+                if (window.getComputedStyle(navToggle).display !== 'none') {
+                    navToggle.click();
+                }
+            });
+        });
+
+        // Add GSAP animations to elements on scroll
+        gsap.utils.toArray('.course-card').forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    once: true
+                },
+                duration: 0.6,
+                delay: index * 0.1,
+                opacity: 0,
+                y: 50
+            });
+        });
+    </script>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "MACS Academy",
+        "url": "https://macsacademy.co.in",
+        "logo": "https://macsacademy.co.in/logo.png",
+        "sameAs": [
+            "https://www.facebook.com/macsacademy",
+            "https://twitter.com/macsacademy",
+            "https://www.linkedin.com/company/macsacademy"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-9876543210",
+            "contactType": "Customer Service",
+            "email": "info@macsacademy.co.in"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "NM 4 & 5, Ground Floor, Opposite Union Bank, Old DLF Colony, Sector 14",
+            "addressLocality": "Gurgaon",
+            "addressRegion": "Haryana",
+            "postalCode": "122001",
+            "addressCountry": "IN"
+        },
+        "description": "Premier technology training institute offering industry-focused courses in Digital Marketing, Data Science, Full Stack Development, and more.",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "500"
+        }
+    }
+    </script>
+</body>
+</html>
