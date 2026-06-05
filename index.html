@@ -3,39 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MACS Academy - Premier technology training institute offering industry-focused courses in Digital Marketing, Data Science, Full Stack Development, and more.">
-    <meta name="keywords" content="MACS Academy, training, courses, technology, placement, certification">
+    <meta name="description" content="MACS Academy - Premium Computer Training Institute offering Digital Marketing, Data Analytics, Full Stack Development, Data Science & more. 20+ years experience, 3000+ placements.">
+    <meta name="keywords" content="MACS Academy, Computer Training, Digital Marketing, Data Analytics, Full Stack Development, Data Science, Gurgaon, Training Institute">
     <meta name="author" content="MACS Academy">
+    
+    <!-- Open Graph -->
     <meta property="og:title" content="MACS Academy - Upgrade Yourself With Industry-Focused Training">
-    <meta property="og:description" content="20,000+ students trained | 500+ batches | 3000+ placements | Expert instructors">
+    <meta property="og:description" content="Building a Better You Through Technology Training. 20,000+ Students Trained | 3000+ Placements">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=MACS+Academy">
-    <meta name="theme-color" content="#0A192F">
+    <meta property="og:url" content="https://macsacademy.co.in">
     
-    <title>MACS Academy - Premium Technology Training Institute</title>
+    <title>MACS Academy - Premium Computer Training Institute in Gurgaon</title>
     
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Google Fonts -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Swiper CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
             --primary: #0A192F;
             --secondary: #00D4FF;
@@ -44,14 +41,18 @@
             --background: #050816;
             --text: #FFFFFF;
             --subtext: #AAB0C0;
-            --dark-card: rgba(10, 25, 47, 0.8);
-            --glass: rgba(255, 255, 255, 0.05);
         }
-
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         html {
             scroll-behavior: smooth;
         }
-
+        
         body {
             font-family: 'Inter', sans-serif;
             background: var(--background);
@@ -59,104 +60,119 @@
             overflow-x: hidden;
             position: relative;
         }
-
-        body::before {
-            content: '';
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Preloader */
+        .preloader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(123, 97, 255, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
+            background: var(--background);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease;
         }
-
+        
+        .preloader-content {
+            text-align: center;
+        }
+        
+        .preloader-logo {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        
+        /* Custom Cursor */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+            opacity: 0.5;
+        }
+        
         /* Scroll Progress Bar */
-        #scrollProgress {
+        .scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, var(--secondary), var(--accent), var(--highlight));
-            width: 0%;
-            z-index: 9999;
+            z-index: 9997;
+            transition: width 0.1s ease;
         }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary);
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-        }
-
-        p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--subtext);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
+        
         /* Navbar */
         .navbar {
-            background: rgba(5, 8, 22, 0.7);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            background: rgba(10, 25, 47, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
             transition: all 0.3s ease;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
-
-        .navbar.shrink {
-            padding: 0.5rem 2rem;
-            background: rgba(5, 8, 22, 0.95);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(10, 25, 47, 0.95);
         }
-
+        
         .navbar-brand {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--secondary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
+        
         .nav-link {
-            color: var(--subtext) !important;
+            color: var(--text) !important;
             font-weight: 500;
+            margin: 0 0.5rem;
             position: relative;
-            margin: 0 1rem;
             transition: all 0.3s ease;
         }
-
+        
         .nav-link::after {
             content: '';
             position: absolute;
@@ -167,1990 +183,1973 @@
             background: linear-gradient(90deg, var(--secondary), var(--accent));
             transition: width 0.3s ease;
         }
-
-        .nav-link:hover {
-            color: var(--secondary) !important;
-        }
-
+        
         .nav-link:hover::after {
             width: 100%;
         }
-
+        
         .btn-enroll {
             background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: var(--primary) !important;
             border: none;
-            padding: 0.7rem 1.8rem;
+            padding: 0.6rem 2rem;
             border-radius: 50px;
+            color: var(--text);
             font-weight: 600;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
         }
-
-        .btn-enroll::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn-enroll:hover::before {
-            left: 100%;
-        }
-
+        
         .btn-enroll:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
         }
-
+        
         /* Hero Section */
         #hero {
             min-height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 60px;
-            position: relative;
             overflow: hidden;
         }
-
-        #canvas-container {
+        
+        #particles-js {
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
+            z-index: 1;
         }
-
+        
+        #three-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        
         .hero-content {
             position: relative;
-            z-index: 10;
+            z-index: 2;
             text-align: center;
-            max-width: 900px;
-            animation: fadeInUp 1s ease;
+            padding: 2rem;
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-headline {
+        
+        .hero-title {
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
-            background: linear-gradient(135deg, var(--text), var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero-subheadline {
-            font-size: 1.3rem;
-            color: var(--subtext);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .btn-primary-custom {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: var(--primary);
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary-custom::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            transition: left 0.3s ease;
-        }
-
-        .btn-primary-custom:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
-        }
-
-        .btn-secondary-custom {
-            background: transparent;
-            color: var(--secondary);
-            border: 2px solid var(--secondary);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-secondary-custom::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--secondary);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .btn-secondary-custom:hover {
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .btn-secondary-custom:hover::before {
-            left: 0;
-        }
-
-        /* Hero Stats */
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            counter-increment: stat;
-        }
-
-        .stat-label {
-            color: var(--subtext);
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        /* Particles Background */
-        #particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            text-align: center;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--text), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1.2;
         }
-
-        .section-subtitle {
-            text-align: center;
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
             color: var(--subtext);
-            max-width: 600px;
-            margin: 0 auto 4rem;
-            font-size: 1.1rem;
-        }
-
-        /* About Section */
-        #about {
-            background: linear-gradient(180deg, rgba(10, 25, 47, 0.5) 0%, transparent 100%);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--accent), var(--secondary));
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><pattern id="pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect fill="url(%23pattern)" width="400" height="400"/></svg>');
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .about-content h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-content p {
             margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .feature-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            background: rgba(0, 212, 255, 0.1);
-            border-color: var(--secondary);
-            transform: translateY(-5px);
-        }
-
-        .feature-card i {
-            font-size: 2rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-card p {
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-image {
-                height: 300px;
-            }
-
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Courses Section */
-        #courses {
-            background: linear-gradient(180deg, transparent 0%, rgba(123, 97, 255, 0.05) 100%);
-        }
-
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .course-card {
-            background: var(--dark-card);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .course-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            transition: all 0.4s ease;
-            opacity: 0;
-        }
-
-        .course-card:hover {
-            background: rgba(10, 25, 47, 0.95);
-            border-color: var(--secondary);
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2);
-        }
-
-        .course-card:hover::before {
-            opacity: 1;
-            top: -20%;
-            right: -20%;
-        }
-
-        .course-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-            position: relative;
-            z-index: 2;
-        }
-
-        .course-modules {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .course-module {
-            color: var(--subtext);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .course-module::before {
-            content: '✓';
-            color: var(--highlight);
-            font-weight: bold;
-            margin-right: 0.7rem;
-        }
-
-        .course-btn {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: var(--primary);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            position: relative;
-            z-index: 2;
-            margin-top: 1rem;
-        }
-
-        .course-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        /* Why Choose Section */
-        #whychoose {
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.05) 100%);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .why-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .why-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent), transparent);
-            border-radius: 20px 20px 0 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .why-card:hover {
-            background: rgba(0, 212, 255, 0.1);
-            border-color: var(--secondary);
-            transform: translateY(-10px);
-        }
-
-        .why-card:hover::before {
-            opacity: 1;
-        }
-
-        .why-icon {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .why-card:hover .why-icon {
-            color: var(--accent);
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        .why-card h3 {
-            margin-bottom: 1rem;
-        }
-
-        .why-card p {
-            margin: 0;
-        }
-
-        /* Parallax Section */
-        #parallax {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(123, 97, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .parallax-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-        }
-
-        .parallax-title {
-            font-size: clamp(3rem, 10vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--secondary), var(--accent), var(--highlight));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .parallax-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            max-width: 1200px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
-
-        .parallax-item {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+        }
+        
+        .btn-secondary-custom {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
         }
-
-        .parallax-item:hover {
+        
+        .btn-secondary-custom:hover {
             background: rgba(0, 212, 255, 0.1);
-            border-color: var(--secondary);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
-
-        .parallax-item i {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        /* Placements Section */
-        #placements {
-            background: linear-gradient(180deg, rgba(10, 25, 47, 0.5) 0%, transparent 100%);
-        }
-
-        .placements-container {
-            position: relative;
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        .swiper {
-            width: 100%;
-            padding: 2rem 0;
-        }
-
-        .placement-card {
-            background: var(--dark-card);
-            border: 2px solid rgba(0, 212, 255, 0.2);
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
+            text-align: center;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
-
-        .placement-card:hover {
-            border-color: var(--secondary);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            transform: scale(1.05);
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
         }
-
-        .placement-logo {
-            font-size: 2rem;
+        
+        .stat-number {
+            font-size: 2.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, var(--secondary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
         }
-
-        /* Counter Section */
-        #counters {
-            background: linear-gradient(180deg, transparent 0%, rgba(123, 97, 255, 0.1) 100%);
+        
+        .stat-label {
+            color: var(--subtext);
+            font-size: 0.9rem;
         }
-
-        .counters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-
-        .counter-item {
-            text-align: center;
+        
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             padding: 2rem;
+            transition: all 0.3s ease;
         }
-
-        .counter-number {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--secondary), var(--accent), var(--highlight));
+        
+        .glass-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--text), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.5rem;
         }
-
-        .counter-label {
+        
+        .section-subtitle {
             font-size: 1.2rem;
             color: var(--subtext);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
         }
-
-        /* Testimonials Section */
-        #testimonials {
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.05) 100%);
+        
+        /* About Section */
+        #about {
+            background: linear-gradient(180deg, var(--background) 0%, var(--primary) 100%);
         }
-
-        .testimonials-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: var(--dark-card);
-            border: 1px solid rgba(0, 212, 255, 0.2);
+        
+        .about-image {
+            position: relative;
             border-radius: 20px;
-            padding: 2.5rem;
-            min-height: 300px;
+            overflow: hidden;
+            height: 500px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.2);
         }
-
-        .testimonial-card:hover {
-            border-color: var(--secondary);
-            background: rgba(10, 25, 47, 0.95);
-            transform: translateY(-10px);
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
         }
-
-        .testimonial-text {
+        
+        .about-content p {
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .testimonial-info h4 {
-            margin: 0;
-        }
-
-        .testimonial-info p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--secondary);
-        }
-
-        .testimonial-stars {
-            color: var(--highlight);
-            margin-bottom: 0.5rem;
-        }
-
-        /* FAQ Section */
-        #faq {
-            background: linear-gradient(180deg, transparent 0%, rgba(123, 97, 255, 0.05) 100%);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .faq-item.active {
-            background: rgba(0, 212, 255, 0.1);
-            border-color: var(--secondary);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: rgba(0, 212, 255, 0.05);
-        }
-
-        .faq-question h4 {
-            margin: 0;
-            flex: 1;
-        }
-
-        .faq-toggle {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 1.5rem;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 0 1.5rem 1.5rem;
-        }
-
-        .faq-answer p {
-            margin: 0;
-            line-height: 1.8;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: linear-gradient(180deg, rgba(10, 25, 47, 0.5) 0%, transparent 100%);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-detail {
-            margin-bottom: 2rem;
-        }
-
-        .contact-detail h4 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-detail p {
-            line-height: 1.8;
-        }
-
-        .contact-socials {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--glass);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--secondary);
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: rgba(0, 212, 255, 0.1);
-            border-color: var(--secondary);
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            background: var(--glass);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            color: var(--text);
-            padding: 1rem;
-            border-radius: 10px;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            resize: none;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            background: rgba(0, 212, 255, 0.1);
-            border-color: var(--secondary);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-        }
-
-        .form-group input::placeholder,
-        .form-group select::placeholder,
-        .form-group textarea::placeholder {
             color: var(--subtext);
+            line-height: 1.8;
+            margin-bottom: 2rem;
         }
-
-        .btn-submit {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: var(--primary);
-            border: none;
-            padding: 1rem;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
-            padding: 3rem 0 1rem;
-            margin-top: 6rem;
-        }
-
-        .footer-content {
+        
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.7rem;
-        }
-
-        .footer-section a {
-            color: var(--subtext);
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary);
-        }
-
-        .footer-bottom {
+        
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
-            color: var(--subtext);
-        }
-
-        /* Scroll to Top Button */
-        #scrollTop {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            border: none;
-            border-radius: 50%;
-            color: var(--primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
             transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
         }
-
-        #scrollTop:hover {
+        
+        .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--secondary);
         }
-
-        #scrollTop.show {
-            display: flex;
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
         }
-
-        /* Loading Screen */
-        .preloader {
-            position: fixed;
+        
+        .feature-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--subtext);
+            margin: 0;
+        }
+        
+        /* Courses Section */
+        #courses {
+            background: var(--primary);
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--background);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        .preloader.hidden {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
             opacity: 0;
-            pointer-events: none;
+            transition: opacity 0.4s ease;
         }
-
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(0, 212, 255, 0.2);
-            border-top: 4px solid var(--secondary);
-            border-right: 4px solid var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        
+        .course-card:hover::before {
+            opacity: 0.1;
         }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        
+        .course-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.3);
+            border-color: var(--secondary);
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 60px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn-primary-custom,
-            .btn-secondary-custom {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            section {
-                padding: 3rem 0;
-            }
-
-            .navbar {
-                padding: 1rem 1rem;
-            }
-
-            .courses-grid {
-                grid-template-columns: 1fr;
-            }
-
-            #scrollTop {
-                bottom: 1rem;
-                right: 1rem;
-                width: 45px;
-                height: 45px;
-            }
+        
+        .course-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
-
-        @media (max-width: 480px) {
-            .hero-headline {
-                font-size: 2rem;
-            }
-
-            .hero-subheadline {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .btn-primary-custom,
-            .btn-secondary-custom {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
+        
+        .course-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
-
-        /* Animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
+        
+        .course-topics {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
-
-        .animate-on-scroll.animated {
-            animation: fadeInUp 0.6s ease forwards;
+        
+        .course-topics li {
+            color: var(--subtext);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        
+        .course-topics li i {
+            color: var(--highlight);
+            margin-right: 0.5rem;
         }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        
+        .btn-learn-more {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            color: var(--text);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            width: 100%;
         }
-
-        .pulse {
-            animation: pulse 2s ease-in-out infinite;
+        
+        .btn-learn-more:hover {
+            background: var(--secondary);
+            color: var(--background);
         }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
+        
+        /* Why Choose Section */
+        #why-choose {
+            background: linear-gradient(180deg, var(--primary) 0%, var(--background) 100%);
         }
-
-        /* Glassmorphism */
-        .glass {
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .why-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-
-        /* Neon Effect */
-        .neon {
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5),
-                         0 0 20px rgba(123, 97, 255, 0.3);
+        
+        .why-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
         }
-
-        /* Glow Effect */
-        .glow {
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        
+        .why-card:hover::after {
+            left: 100%;
         }
-
-        /* Floating Animation */
-        .float {
-            animation: floating 3s ease-in-out infinite;
+        
+        .why-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(123, 97, 255, 0.3);
         }
-
-        @keyframes floating {
+        
+        .why-icon {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+        
+        .why-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .why-card p {
+            color: var(--subtext);
+            line-height: 1.6;
+        }
+        
+        /* Parallax Section */
+        #parallax-experience {
+            background: linear-gradient(135deg, var(--primary), var(--background));
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23050816" width="1200" height="600"/><circle cx="200" cy="150" r="100" fill="%2300D4FF" opacity="0.1"/><circle cx="800" cy="400" r="150" fill="%237B61FF" opacity="0.1"/><circle cx="1000" cy="200" r="80" fill="%2300FFB3" opacity="0.1"/></svg>');
+            background-size: cover;
+        }
+        
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .parallax-content h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--text), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .parallax-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .parallax-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .parallax-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .parallax-item i {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--secondary), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .parallax-item p {
+            color: var(--subtext);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Placement Section */
+        #placements {
+            background: var(--background);
+        }
+        
+        .placement-slider {
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .company-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .company-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+            border-color: var(--secondary);
+        }
+        
+        .company-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--text), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Counter Section */
+        #achievements {
+            background: linear-gradient(135deg, var(--primary), var(--background));
+            padding: 80px 0;
+        }
+        
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .counter-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .counter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 255, 179, 0.3);
+            border-color: var(--highlight);
+        }
+        
+        .counter-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--secondary), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .counter-label {
+            font-size: 1.2rem;
+            color: var(--subtext);
+        }
+        
+        /* Testimonials */
+        #testimonials {
+            background: var(--background);
+        }
+        
+        .testimonial-slider {
+            padding: 2rem 0;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(123, 97, 255, 0.3);
+        }
+        
+        .testimonial-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--text);
+            font-weight: 700;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: var(--subtext);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        
+        .testimonial-course {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        
+        /* FAQ Section */
+        #faq {
+            background: linear-gradient(180deg, var(--background) 0%, var(--primary) 100%);
+        }
+        
+        .accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .accordion-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-item:hover {
+            border-color: var(--secondary);
+        }
+        
+        .accordion-header {
+            margin: 0;
+        }
+        
+        .accordion-button {
+            background: transparent;
+            color: var(--text);
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1.5rem;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--secondary);
+            box-shadow: none;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border: none;
+        }
+        
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300D4FF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+        
+        .accordion-body {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--subtext);
+            padding: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: var(--primary);
+        }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+        }
+        
+        .contact-item-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item-content p {
+            color: var(--subtext);
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+        
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control, .form-select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 0.9rem 1.2rem;
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--secondary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            color: var(--text);
+            outline: none;
+        }
+        
+        .form-control::placeholder {
+            color: var(--subtext);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--background);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .footer-section p,
+        .footer-section ul {
+            color: var(--subtext);
+            line-height: 1.8;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-section ul li a {
+            color: var(--subtext);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--subtext);
+        }
+        
+        /* Scroll to Top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.5);
+        }
+        
+        /* Floating Shapes */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+        
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes float {
             0%, 100% {
-                transform: translateY(0px);
+                transform: translateY(0) rotate(0deg);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-50px) rotate(180deg);
             }
         }
-
-        /* Tilt Effect */
-        .tilt {
-            perspective: 1000px;
-        }
-
-        /* Additional responsive improvements */
-        @media (max-width: 992px) {
-            .about-grid,
-            .contact-grid {
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .custom-cursor,
+            .cursor-follower {
+                display: none;
+            }
+            
+            .navbar-collapse {
+                background: rgba(10, 25, 47, 0.98);
+                padding: 1rem;
+                margin-top: 1rem;
+                border-radius: 10px;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .courses-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        /* Swiper Custom Styling */
+        .swiper-pagination-bullet {
+            background: var(--secondary);
+            opacity: 0.5;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: var(--accent);
+        }
+        
+        /* Form Select Option Styling */
+        .form-select option {
+            background: var(--primary);
+            color: var(--text);
         }
     </style>
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
-    <div id="scrollProgress"></div>
-
     <!-- Preloader -->
     <div class="preloader" id="preloader">
-        <div class="loader"></div>
+        <div class="preloader-content">
+            <div class="preloader-logo">MACS</div>
+        </div>
     </div>
-
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#home">MACS Academy</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">MACS Academy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: 1px solid var(--secondary); color: var(--secondary);">
+                <i class="fas fa-bars" style="color: var(--secondary);"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
                     <li class="nav-item"><a class="nav-link" href="#placements">Placements</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#whychoose">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why-choose">Features</a></li>
                     <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><button class="btn-enroll ms-3" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Enroll Now</button></li>
+                    <li class="nav-item"><a class="btn btn-enroll" href="#contact">Enroll Now</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    
     <!-- Hero Section -->
     <section id="hero">
-        <div id="canvas-container"></div>
-        <div id="particles"></div>
+        <div id="three-container"></div>
+        <div id="particles-js"></div>
         <div class="container hero-content">
-            <h1 class="hero-headline">Upgrade Yourself With MACS</h1>
-            <p class="hero-subheadline">Building a Better You Through Industry-Focused Technology Training</p>
-            <div class="hero-buttons">
-                <button class="btn-primary-custom" onclick="document.getElementById('courses').scrollIntoView({behavior: 'smooth'})">Explore Courses</button>
-                <button class="btn-secondary-custom" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Free Career Counseling</button>
+            <div data-aos="fade-up">
+                <h1 class="hero-title">Upgrade Yourself With MACS</h1>
+                <p class="hero-subtitle">Building a Better You Through Industry-Focused Technology Training</p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn-primary-custom">Explore Courses</a>
+                    <a href="#contact" class="btn-secondary-custom">Free Career Counseling</a>
+                </div>
             </div>
-            <div class="hero-stats">
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-number" data-target="20000">0</div>
-                    <div class="stat-label">Students Trained</div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-card">
+                    <span class="stat-number" data-count="20000">0</span>
+                    <span class="stat-label">Students Trained</span>
                 </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-number" data-target="500">0</div>
-                    <div class="stat-label">Batches</div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="500">0</span>
+                    <span class="stat-label">Batches</span>
                 </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-number" data-target="3000">0</div>
-                    <div class="stat-label">Students Placed</div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="3000">0</span>
+                    <span class="stat-label">Placements</span>
                 </div>
-                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-number" data-target="4.8">0</div>
-                    <div class="stat-label">Rating</div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="4.8">0</span>
+                    <span class="stat-label">Rating</span>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- About Section -->
-    <section id="about" class="container">
-        <h2 class="section-title" data-aos="fade-up">Welcome to MACS Academy</h2>
-        <div class="about-grid" style="margin-top: 4rem;">
-            <div class="about-image" data-aos="fade-right"></div>
-            <div class="about-content" data-aos="fade-left">
-                <h3>Professional Computer Training Institute</h3>
-                <p>MACS Academy is a premier computer training institute offering industry-relevant courses, practical learning, certifications, and career-focused education. With over 20 years of experience, we've trained more than 20,000 students and placed over 3,000 graduates in leading companies.</p>
-                <div class="about-features">
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fas fa-users"></i>
-                        <h4>Industry Experts</h4>
-                        <p>Trained by professionals with real-world experience</p>
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="about-image">
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fas fa-code"></i>
-                        <h4>Practical Training</h4>
-                        <p>100% hands-on learning with live projects</p>
-                    </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fas fa-briefcase"></i>
-                        <h4>Placement Support</h4>
-                        <p>Dedicated support for job placements</p>
-                    </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-                        <i class="fas fa-certificate"></i>
-                        <h4>Certifications</h4>
-                        <p>Industry-recognized certificates</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-content">
+                        <h2>Welcome to MACS Academy</h2>
+                        <p>
+                            MACS Academy is a premier professional computer training institute dedicated to providing 
+                            industry-relevant courses with practical learning approaches. We focus on delivering 
+                            certifications and career-focused education that empowers students to excel in the 
+                            ever-evolving technology landscape.
+                        </p>
+                        <p>
+                            With over 20 years of experience, we have trained more than 20,000 students and helped 
+                            3,000+ secure placements in leading organizations. Our commitment to excellence and 
+                            practical training sets us apart.
+                        </p>
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                                <h4>Industry Experts</h4>
+                                <p>Learn from professionals</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+                                <h4>Practical Training</h4>
+                                <p>100% hands-on learning</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
+                                <h4>Placement Support</h4>
+                                <p>Career assistance guaranteed</p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+                                <h4>Certifications</h4>
+                                <p>Industry-recognized credentials</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
     </section>
-
+    
     <!-- Courses Section -->
-    <section id="courses" class="container">
-        <h2 class="section-title" data-aos="fade-up">Our Courses</h2>
-        <p class="section-subtitle" data-aos="fade-up">Industry-focused training programs designed to make you job-ready</p>
-        <div class="courses-grid">
-            <div class="course-card" data-aos="fade-up">
-                <h3 class="course-title">Digital Marketing</h3>
-                <div class="course-modules">
-                    <div class="course-module">SEO & SEM</div>
-                    <div class="course-module">Social Media Marketing</div>
-                    <div class="course-module">Google Ads & Analytics</div>
-                    <div class="course-module">Email Marketing</div>
+    <section id="courses">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Premium Courses</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Industry-focused programs designed to make you job-ready
+            </p>
+            <div class="courses-grid">
+                <div class="course-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Digital Marketing</h3>
+                    <ul class="course-topics">
+                        <li><i class="fas fa-check"></i> Search Engine Optimization (SEO)</li>
+                        <li><i class="fas fa-check"></i> Search Engine Marketing (SEM)</li>
+                        <li><i class="fas fa-check"></i> Social Media Marketing (SMM)</li>
+                        <li><i class="fas fa-check"></i> Google Ads & Analytics</li>
+                    </ul>
+                    <button class="btn-learn-more">Learn More</button>
                 </div>
-                <button class="course-btn">Learn More</button>
-            </div>
-
-            <div class="course-card" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="course-title">Data Analytics</h3>
-                <div class="course-modules">
-                    <div class="course-module">Advanced Excel</div>
-                    <div class="course-module">SQL & Databases</div>
-                    <div class="course-module">Python for Analytics</div>
-                    <div class="course-module">Power BI</div>
+                
+                <div class="course-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-icon"><i class="fas fa-database"></i></div>
+                    <h3>Data Analytics</h3>
+                    <ul class="course-topics">
+                        <li><i class="fas fa-check"></i> Advanced Excel</li>
+                        <li><i class="fas fa-check"></i> SQL</li>
+                        <li><i class="fas fa-check"></i> Python for Data Analysis</li>
+                        <li><i class="fas fa-check"></i> Power BI</li>
+                    </ul>
+                    <button class="btn-learn-more">Learn More</button>
                 </div>
-                <button class="course-btn">Learn More</button>
-            </div>
-
-            <div class="course-card" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="course-title">Full Stack Development</h3>
-                <div class="course-modules">
-                    <div class="course-module">HTML, CSS, JavaScript</div>
-                    <div class="course-module">Bootstrap Framework</div>
-                    <div class="course-module">Python Backend</div>
-                    <div class="course-module">MySQL Database</div>
+                
+                <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-icon"><i class="fas fa-code"></i></div>
+                    <h3>Full Stack Development</h3>
+                    <ul class="course-topics">
+                        <li><i class="fas fa-check"></i> HTML, CSS, JavaScript</li>
+                        <li><i class="fas fa-check"></i> Bootstrap Framework</li>
+                        <li><i class="fas fa-check"></i> Python Programming</li>
+                        <li><i class="fas fa-check"></i> MySQL Database</li>
+                    </ul>
+                    <button class="btn-learn-more">Learn More</button>
                 </div>
-                <button class="course-btn">Learn More</button>
-            </div>
-
-            <div class="course-card" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="course-title">Data Science</h3>
-                <div class="course-modules">
-                    <div class="course-module">Machine Learning</div>
-                    <div class="course-module">Python Programming</div>
-                    <div class="course-module">Data Analytics</div>
-                    <div class="course-module">AI Integration</div>
+                
+                <div class="course-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Data Science</h3>
+                    <ul class="course-topics">
+                        <li><i class="fas fa-check"></i> Machine Learning</li>
+                        <li><i class="fas fa-check"></i> Python Programming</li>
+                        <li><i class="fas fa-check"></i> Statistical Analytics</li>
+                        <li><i class="fas fa-check"></i> Data Visualization</li>
+                    </ul>
+                    <button class="btn-learn-more">Learn More</button>
                 </div>
-                <button class="course-btn">Learn More</button>
-            </div>
-
-            <div class="course-card" data-aos="fade-up" data-aos-delay="400">
-                <h3 class="course-title">MIS</h3>
-                <div class="course-modules">
-                    <div class="course-module">Computer Basics</div>
-                    <div class="course-module">Advanced Excel</div>
-                    <div class="course-module">Tally ERP</div>
-                    <div class="course-module">MS Office Suite</div>
+                
+                <div class="course-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-icon"><i class="fas fa-file-excel"></i></div>
+                    <h3>MIS (Management Information System)</h3>
+                    <ul class="course-topics">
+                        <li><i class="fas fa-check"></i> Computer Basics</li>
+                        <li><i class="fas fa-check"></i> Advanced Excel</li>
+                        <li><i class="fas fa-check"></i> Tally ERP</li>
+                        <li><i class="fas fa-check"></i> Business Analytics</li>
+                    </ul>
+                    <button class="btn-learn-more">Learn More</button>
                 </div>
-                <button class="course-btn">Learn More</button>
-            </div>
-
-            <div class="course-card" data-aos="fade-up" data-aos-delay="500">
-                <h3 class="course-title">Ethical Hacking</h3>
-                <div class="course-modules">
-                    <div class="course-module">Cyber Security</div>
-                    <div class="course-module">Network Security</div>
-                    <div class="course-module">Penetration Testing</div>
-                    <div class="course-module">Secure Coding</div>
+                
+                <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Ethical Hacking</h3>
+                    <ul class="course-topics">
+                        <li><i class="fas fa-check"></i> Cyber Security Fundamentals</li>
+                        <li><i class="fas fa-check"></i> Network Security</li>
+                        <li><i class="fas fa-check"></i> Penetration Testing</li>
+                        <li><i class="fas fa-check"></i> Security Tools</li>
+                    </ul>
+                    <button class="btn-learn-more">Learn More</button>
                 </div>
-                <button class="course-btn">Learn More</button>
-            </div>
-
-            <div class="course-card" data-aos="fade-up" data-aos-delay="600">
-                <h3 class="course-title">Graphic Design</h3>
-                <div class="course-modules">
-                    <div class="course-module">Adobe Photoshop</div>
-                    <div class="course-module">CorelDRAW</div>
-                    <div class="course-module">Illustrator</div>
-                    <div class="course-module">UI/UX Design</div>
+                
+                <div class="course-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Graphic Designing</h3>
+                    <ul class="course-topics">
+                        <li><i class="fas fa-check"></i> Adobe Photoshop</li>
+                        <li><i class="fas fa-check"></i> CorelDraw</li>
+                        <li><i class="fas fa-check"></i> Adobe Illustrator</li>
+                        <li><i class="fas fa-check"></i> Creative Design Projects</li>
+                    </ul>
+                    <button class="btn-learn-more">Learn More</button>
                 </div>
-                <button class="course-btn">Learn More</button>
-            </div>
-
-            <div class="course-card" data-aos="fade-up" data-aos-delay="700">
-                <h3 class="course-title">Advanced Excel</h3>
-                <div class="course-modules">
-                    <div class="course-module">Pivot Tables</div>
-                    <div class="course-module">VLOOKUP & Formulas</div>
-                    <div class="course-module">Data Visualization</div>
-                    <div class="course-module">Dashboard Creation</div>
+                
+                <div class="course-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="course-icon"><i class="fas fa-table"></i></div>
+                    <h3>Advanced Excel</h3>
+                    <ul class="course-topics">
+                        <li><i class="fas fa-check"></i> Pivot Tables & Charts</li>
+                        <li><i class="fas fa-check"></i> VLOOKUP & HLOOKUP</li>
+                        <li><i class="fas fa-check"></i> Macros & VBA</li>
+                        <li><i class="fas fa-check"></i> Dashboard Creation</li>
+                    </ul>
+                    <button class="btn-learn-more">Learn More</button>
                 </div>
-                <button class="course-btn">Learn More</button>
-            </div>
-
-            <div class="course-card" data-aos="fade-up" data-aos-delay="800">
-                <h3 class="course-title">Tally ERP</h3>
-                <div class="course-modules">
-                    <div class="course-module">GST Configuration</div>
-                    <div class="course-module">Inventory Management</div>
-                    <div class="course-module">Accounting</div>
-                    <div class="course-module">Financial Reports</div>
+                
+                <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="course-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>Tally ERP</h3>
+                    <ul class="course-topics">
+                        <li><i class="fas fa-check"></i> GST Implementation</li>
+                        <li><i class="fas fa-check"></i> Inventory Management</li>
+                        <li><i class="fas fa-check"></i> Accounting Principles</li>
+                        <li><i class="fas fa-check"></i> Financial Reports</li>
+                    </ul>
+                    <button class="btn-learn-more">Learn More</button>
                 </div>
-                <button class="course-btn">Learn More</button>
             </div>
         </div>
+        <div class="floating-shape shape-3"></div>
     </section>
-
-    <!-- Why Choose Section -->
-    <section id="whychoose" class="container">
-        <h2 class="section-title" data-aos="fade-up">Why Choose MACS</h2>
-        <p class="section-subtitle" data-aos="fade-up">What makes us the premier choice for tech training</p>
-        <div class="features-grid">
-            <div class="why-card" data-aos="fade-up">
-                <div class="why-icon"><i class="fas fa-clock"></i></div>
-                <h3>20+ Years Experience</h3>
-                <p>Over two decades of excellence in tech education and training</p>
-            </div>
-
-            <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="why-icon"><i class="fas fa-award"></i></div>
-                <h3>Industry Certifications</h3>
-                <p>Globally recognized certificates from leading organizations</p>
-            </div>
-
-            <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="why-icon"><i class="fas fa-code"></i></div>
-                <h3>100% Practical Training</h3>
-                <p>Hands-on learning with real-world projects and applications</p>
-            </div>
-
-            <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="why-icon"><i class="fas fa-user-tie"></i></div>
-                <h3>Expert Trainers</h3>
-                <p>Industry professionals with years of practical experience</p>
-            </div>
-
-            <div class="why-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="why-icon"><i class="fas fa-briefcase"></i></div>
-                <h3>Placement Assistance</h3>
-                <p>Career support and job placement assistance</p>
-            </div>
-
-            <div class="why-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="why-icon"><i class="fas fa-robot"></i></div>
-                <h3>AI Integrated Courses</h3>
-                <p>Modern curriculum with AI and emerging technologies</p>
+    
+    <!-- Why Choose MACS -->
+    <section id="why-choose">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Why Choose MACS Academy</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Experience excellence in every aspect of your learning journey
+            </p>
+            <div class="why-grid">
+                <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-icon"><i class="fas fa-award"></i></div>
+                    <h3>20+ Years Experience</h3>
+                    <p>Two decades of excellence in professional training and education with proven track record</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Industry Recognized Certification</h3>
+                    <p>Get certifications that are valued by employers across industries worldwide</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>100% Practical Training</h3>
+                    <p>Learn by doing with real-world projects and hands-on exercises in every course</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Expert Trainers</h3>
+                    <p>Learn from industry professionals with years of practical experience</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Placement Assistance</h3>
+                    <p>Dedicated career support team to help you land your dream job</p>
+                </div>
+                
+                <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI Integrated Courses</h3>
+                    <p>Stay ahead with courses that integrate latest AI and technology trends</p>
+                </div>
             </div>
         </div>
+        <div class="floating-shape shape-1"></div>
     </section>
-
-    <!-- Parallax Section -->
-    <section id="parallax">
+    
+    <!-- Parallax Experience Section -->
+    <section id="parallax-experience">
+        <div class="parallax-bg"></div>
         <div class="container parallax-content">
-            <h2 class="parallax-title" data-aos="fade-up">Training For Real Success</h2>
-            <div class="parallax-grid">
+            <h2 data-aos="fade-up">Training For Real Success</h2>
+            <div class="parallax-features">
                 <div class="parallax-item" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Practical Learning</h3>
-                    <p>Get hands-on experience with real-world projects</p>
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Practical Learning</p>
                 </div>
                 <div class="parallax-item" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-tasks"></i>
-                    <h3>Real-World Projects</h3>
-                    <p>Work on industry-relevant projects and case studies</p>
+                    <i class="fas fa-project-diagram"></i>
+                    <p>Real-World Projects</p>
                 </div>
                 <div class="parallax-item" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Industry-Ready Skills</h3>
-                    <p>Develop skills that employers are actively seeking</p>
+                    <i class="fas fa-industry"></i>
+                    <p>Industry-Ready Skills</p>
                 </div>
                 <div class="parallax-item" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fas fa-star"></i>
-                    <h3>Career Transformation</h3>
-                    <p>Transform your career with our comprehensive programs</p>
+                    <i class="fas fa-rocket"></i>
+                    <p>Career Transformation</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Placements Section -->
-    <section id="placements" class="container">
-        <h2 class="section-title" data-aos="fade-up">Our Placement Partners</h2>
-        <p class="section-subtitle" data-aos="fade-up">Trusted by leading companies across the industry</p>
-        <div class="placements-container">
-            <div class="swiper" id="placementsSwiper">
+    <section id="placements">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Placement Partners</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                3000+ students successfully placed in leading organizations
+            </p>
+            <div class="placement-slider swiper" data-aos="fade-up" data-aos-delay="200">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="placement-card" data-aos="fade-up">
-                            <div class="placement-logo">Digital Lancers</div>
+                        <div class="company-card">
+                            <div class="company-name">Digital Lancers</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="placement-card" data-aos="fade-up">
-                            <div class="placement-logo">SGT University</div>
+                        <div class="company-card">
+                            <div class="company-name">SGT University</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="placement-card" data-aos="fade-up">
-                            <div class="placement-logo">Enser Comm</div>
+                        <div class="company-card">
+                            <div class="company-name">Enser Communication</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="placement-card" data-aos="fade-up">
-                            <div class="placement-logo">STG Solutions</div>
+                        <div class="company-card">
+                            <div class="company-name">STG</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="placement-card" data-aos="fade-up">
-                            <div class="placement-logo">Tech Mahindra</div>
+                        <div class="company-card">
+                            <div class="company-name">Tech Mahindra</div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="placement-card" data-aos="fade-up">
-                            <div class="placement-logo">Digital Lancers</div>
-                        </div>
-                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Achievement Counter -->
+    <section id="achievements">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="counter-number" data-count="20000">0</span><span class="counter-number">+</span>
+                    <div class="counter-label">Students Trained</div>
+                </div>
+                <div class="counter-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="counter-number" data-count="500">0</span><span class="counter-number">+</span>
+                    <div class="counter-label">Batches</div>
+                </div>
+                <div class="counter-card" data-aos="fade-up" data-aos-delay="300">
+                    <span class="counter-number" data-count="3000">0</span><span class="counter-number">+</span>
+                    <div class="counter-label">Students Placed</div>
+                </div>
+                <div class="counter-card" data-aos="fade-up" data-aos-delay="400">
+                    <span class="counter-number" data-count="4.8">0</span><span class="counter-number">+</span>
+                    <div class="counter-label">Ratings</div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Achievement Counters -->
-    <section id="counters" class="container">
-        <h2 class="section-title" data-aos="fade-up">Our Achievements</h2>
-        <div class="counters-grid" style="margin-top: 4rem;">
-            <div class="counter-item" data-aos="fade-up">
-                <div class="counter-number" data-count="20000">0</div>
-                <div class="counter-label">Students Trained</div>
-            </div>
-            <div class="counter-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="counter-number" data-count="500">0</div>
-                <div class="counter-label">Batches Conducted</div>
-            </div>
-            <div class="counter-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="counter-number" data-count="3000">0</div>
-                <div class="counter-label">Students Placed</div>
-            </div>
-            <div class="counter-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="counter-number" data-count="4.8">0</div>
-                <div class="counter-label">Rating (out of 5)</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="container">
-        <h2 class="section-title" data-aos="fade-up">Student Testimonials</h2>
-        <p class="section-subtitle" data-aos="fade-up">Hear from our successful graduates</p>
-        <div class="testimonials-container">
-            <div class="swiper" id="testimonialsSwiper">
+    
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Student Success Stories</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Hear from our students who transformed their careers
+            </p>
+            <div class="testimonial-slider swiper" data-aos="fade-up" data-aos-delay="200">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="testimonial-card" data-aos="fade-up">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"MACS Academy transformed my career. The practical training and expert instructors helped me secure a great job within months. Highly recommended!"</p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar">RK</div>
-                                <div class="testimonial-info">
-                                    <h4>Raj Kumar</h4>
-                                    <p>Full Stack Development</p>
-                                </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">RS</div>
+                            <p class="testimonial-text">
+                                "MACS Academy transformed my career completely. The practical training approach 
+                                and expert guidance helped me secure a great job in digital marketing. Highly recommended!"
+                            </p>
+                            <h4 class="testimonial-name">Rahul Sharma</h4>
+                            <p class="testimonial-course">Digital Marketing</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
-
                     <div class="swiper-slide">
-                        <div class="testimonial-card" data-aos="fade-up">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The data analytics course at MACS was incredible. Real projects, experienced trainers, and amazing placement support. I got placed in my dream company!"</p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar">PS</div>
-                                <div class="testimonial-info">
-                                    <h4>Priya Singh</h4>
-                                    <p>Data Analytics</p>
-                                </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">PK</div>
+                            <p class="testimonial-text">
+                                "The Data Analytics course at MACS was comprehensive and industry-focused. 
+                                The trainers were excellent and the placement support was outstanding."
+                            </p>
+                            <h4 class="testimonial-name">Priya Kumar</h4>
+                            <p class="testimonial-course">Data Analytics</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
-
                     <div class="swiper-slide">
-                        <div class="testimonial-card" data-aos="fade-up">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"Best decision to join MACS for digital marketing. The industry insights and hands-on training made all the difference in my career transition."</p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar">AM</div>
-                                <div class="testimonial-info">
-                                    <h4>Aarav Mehta</h4>
-                                    <p>Digital Marketing</p>
-                                </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">AV</div>
+                            <p class="testimonial-text">
+                                "Best decision I made was joining MACS Academy for Full Stack Development. 
+                                The hands-on projects and real-world scenarios prepared me perfectly for the industry."
+                            </p>
+                            <h4 class="testimonial-name">Amit Verma</h4>
+                            <p class="testimonial-course">Full Stack Development</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
-
                     <div class="swiper-slide">
-                        <div class="testimonial-card" data-aos="fade-up">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"The cybersecurity course was comprehensive and well-structured. Great mentors and excellent career support. Landed a job as a security analyst!"</p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar">VG</div>
-                                <div class="testimonial-info">
-                                    <h4>Vikram Gupta</h4>
-                                    <p>Ethical Hacking</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-card" data-aos="fade-up">
-                            <div class="testimonial-stars">★★★★★</div>
-                            <p class="testimonial-text">"MACS Academy provided me with all the skills and confidence needed for data science. The project-based learning approach is fantastic!"</p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar">NK</div>
-                                <div class="testimonial-info">
-                                    <h4>Neha Kapoor</h4>
-                                    <p>Data Science</p>
-                                </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">SK</div>
+                            <p class="testimonial-text">
+                                "The Data Science program exceeded my expectations. Expert faculty, 
+                                modern curriculum, and excellent placement support made all the difference."
+                            </p>
+                            <h4 class="testimonial-name">Sneha Kapoor</h4>
+                            <p class="testimonial-course">Data Science</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
-
+    
     <!-- FAQ Section -->
-    <section id="faq" class="container">
-        <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
-        <div class="faq-container" style="margin-top: 4rem;">
-            <div class="faq-item" data-aos="fade-up">
-                <div class="faq-question">
-                    <h4>Why choose MACS Academy?</h4>
-                    <span class="faq-toggle">+</span>
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Got questions? We've got answers
+            </p>
+            <div class="accordion" data-aos="fade-up" data-aos-delay="200">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Why choose MACS Academy?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent=".accordion">
+                        <div class="accordion-body">
+                            MACS Academy offers 20+ years of experience in professional training with 100% practical 
+                            learning approach. We have trained over 20,000 students and placed 3,000+ in leading 
+                            organizations. Our industry-recognized certifications, expert trainers, and placement 
+                            assistance make us the preferred choice for career-focused education.
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    <p>MACS Academy stands out with 20+ years of experience, industry expert trainers, 100% practical training, and proven placement record. Our curriculum is regularly updated to match industry demands.</p>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Are certifications provided?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent=".accordion">
+                        <div class="accordion-body">
+                            Yes! Upon successful completion of any course, you will receive an industry-recognized 
+                            certification from MACS Academy. Our certificates are valued by employers across various 
+                            industries and add significant value to your professional profile.
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="faq-question">
-                    <h4>Are certifications provided?</h4>
-                    <span class="faq-toggle">+</span>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Is placement support available?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent=".accordion">
+                        <div class="accordion-body">
+                            Absolutely! We provide comprehensive placement assistance to all our students. Our dedicated 
+                            career support team helps with resume building, interview preparation, and connects you with 
+                            our network of 50+ placement partners including Digital Lancers, Tech Mahindra, and more.
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    <p>Yes, all our courses come with industry-recognized certificates upon completion. These certificates are valued by employers across the industry.</p>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            Are classes practical?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent=".accordion">
+                        <div class="accordion-body">
+                            Yes! We emphasize 100% practical training. Every course includes hands-on exercises, 
+                            real-world projects, and industry scenarios. You'll work on live projects that prepare 
+                            you for actual workplace challenges, ensuring you're job-ready from day one.
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="faq-question">
-                    <h4>Is placement support available?</h4>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely! We provide comprehensive placement support including resume building, interview preparation, and job placements with leading companies.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="faq-question">
-                    <h4>Are classes practical oriented?</h4>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, all our courses are 100% practical. You'll work on real-world projects, industry case studies, and hands-on assignments throughout the program.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                <div class="faq-question">
-                    <h4>Do you offer beginner-friendly courses?</h4>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, we have courses for all levels - beginner, intermediate, and advanced. No prior experience required. Our instructors will guide you from basics to advanced concepts.</p>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            Do you offer beginner-friendly courses?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent=".accordion">
+                        <div class="accordion-body">
+                            Yes! Our courses are designed for learners at all levels. Whether you're a complete beginner 
+                            or looking to advance your skills, we have programs tailored to your needs. Our MIS and 
+                            Computer Basics courses are perfect for beginners, while advanced courses like Data Science 
+                            cater to experienced professionals.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Contact Section -->
-    <section id="contact" class="container">
-        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-        <div class="contact-grid" style="margin-top: 4rem;">
-            <div class="contact-info" data-aos="fade-right">
-                <h3>Contact Information</h3>
-                <div class="contact-detail">
-                    <h4><i class="fas fa-building"></i> Address</h4>
-                    <p>MACS Academy<br>
-                    NM 4 & 5, Ground Floor<br>
-                    Opposite Union Bank<br>
-                    Old DLF Colony, Sector 14<br>
-                    Gurgaon, Haryana 122001</p>
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Ready to upgrade your skills? Contact us today for free career counseling
+            </p>
+            <div class="contact-wrapper">
+                <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-item-content">
+                            <h4>Our Location</h4>
+                            <p>
+                                NM 4 & 5, Ground Floor,<br>
+                                Opposite Union Bank,<br>
+                                Old DLF Colony, Sector 14,<br>
+                                Gurgaon, Haryana 122001
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-item-content">
+                            <h4>Email Us</h4>
+                            <p>info@macsacademy.co.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-item-content">
+                            <h4>Call Us</h4>
+                            <p>+91 XXXXX XXXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="contact-item-content">
+                            <h4>Working Hours</h4>
+                            <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-detail">
-                    <h4><i class="fas fa-envelope"></i> Email</h4>
-                    <p><a href="mailto:info@macsacademy.co.in">info@macsacademy.co.in</a></p>
-                </div>
-                <div class="contact-detail">
-                    <h4><i class="fas fa-phone"></i> Phone</h4>
-                    <p><a href="tel:+919876543210">+91 98765 43210</a></p>
-                </div>
-                <div class="contact-socials">
-                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                
+                <div class="contact-form" data-aos="fade-left" data-aos-delay="200">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" required>
+                                <option value="">Select Course</option>
+                                <option value="digital-marketing">Digital Marketing</option>
+                                <option value="data-analytics">Data Analytics</option>
+                                <option value="full-stack">Full Stack Development</option>
+                                <option value="data-science">Data Science</option>
+                                <option value="mis">MIS</option>
+                                <option value="ethical-hacking">Ethical Hacking</option>
+                                <option value="graphic-design">Graphic Designing</option>
+                                <option value="advanced-excel">Advanced Excel</option>
+                                <option value="tally">Tally ERP</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
                 </div>
             </div>
-
-            <form class="contact-form" data-aos="fade-left">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="+91" required>
-                </div>
-                <div class="form-group">
-                    <label>Course Interest</label>
-                    <select required>
-                        <option value="">Select a course</option>
-                        <option value="digital-marketing">Digital Marketing</option>
-                        <option value="data-analytics">Data Analytics</option>
-                        <option value="full-stack">Full Stack Development</option>
-                        <option value="data-science">Data Science</option>
-                        <option value="mis">MIS</option>
-                        <option value="ethical-hacking">Ethical Hacking</option>
-                        <option value="graphic-design">Graphic Design</option>
-                        <option value="advanced-excel">Advanced Excel</option>
-                        <option value="tally">Tally ERP</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea placeholder="Tell us about yourself..." rows="4"></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Send Message</button>
-            </form>
         </div>
     </section>
-
+    
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>About MACS</h4>
-                    <p>Premier technology training institute with 20+ years of experience, providing industry-focused courses and placement support.</p>
+                    <h3>About MACS</h3>
+                    <p>
+                        MACS Academy is a leading professional computer training institute with 20+ years of 
+                        experience in delivering industry-focused technology education. We empower students 
+                        with practical skills for successful careers.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Courses</h4>
+                    <h3>Popular Courses</h3>
                     <ul>
                         <li><a href="#courses">Digital Marketing</a></li>
                         <li><a href="#courses">Data Analytics</a></li>
                         <li><a href="#courses">Full Stack Development</a></li>
                         <li><a href="#courses">Data Science</a></li>
+                        <li><a href="#courses">Ethical Hacking</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#courses">Courses</a></li>
                         <li><a href="#placements">Placements</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="contact-socials">
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Sector 14, Gurgaon</li>
+                        <li><i class="fas fa-envelope"></i> info@macsacademy.co.in</li>
+                        <li><i class="fas fa-phone"></i> +91 XXXXX XXXXX</li>
+                        <li><i class="fas fa-clock"></i> Mon - Sat: 9 AM - 7 PM</li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2024 MACS Academy. All Rights Reserved. | Designed with <span style="color: var(--highlight);">❤</span> by MACS</p>
+                <p>&copy; 2026 MACS Academy. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-
+    
     <!-- Scroll to Top Button -->
-    <button id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <div class="scroll-to-top" id="scrollTop">
         <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    </div>
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "MACS Academy",
+        "description": "Premium Computer Training Institute offering Digital Marketing, Data Analytics, Full Stack Development, Data Science and more",
+        "url": "https://macsacademy.co.in",
+        "logo": "https://macsacademy.co.in/logo.png",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "NM 4 & 5, Ground Floor, Opposite Union Bank, Old DLF Colony, Sector 14",
+            "addressLocality": "Gurgaon",
+            "addressRegion": "Haryana",
+            "postalCode": "122001",
+            "addressCountry": "IN"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "info@macsacademy.co.in",
+            "contactType": "Customer Service"
+        },
+        "sameAs": [
+            "https://facebook.com/macsacademy",
+            "https://twitter.com/macsacademy",
+            "https://linkedin.com/company/macsacademy"
+        ]
+    }
+    </script>
+    
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
     <script>
-        // Initialize AOS
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+        
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+        
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            follower.style.left = followerX + 'px';
+            follower.style.top = followerY + 'px';
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+        
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+        
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#00D4FF' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00D4FF',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+        
+        // Three.js Background
+        const threeContainer = document.getElementById('three-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        threeContainer.appendChild(renderer.domElement);
+        
+        const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x00D4FF,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.3
+        });
+        const torus = new THREE.Mesh(geometry, material);
+        scene.add(torus);
+        
+        const sphereGeometry = new THREE.SphereGeometry(5, 32, 32);
+        const sphereMaterial = new THREE.MeshBasicMaterial({ 
+            color: 0x7B61FF,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.2
+        });
+        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+        sphere.position.set(20, -10, -10);
+        scene.add(sphere);
+        
+        camera.position.z = 30;
+        
+        function animateThree() {
+            requestAnimationFrame(animateThree);
+            torus.rotation.x += 0.01;
+            torus.rotation.y += 0.005;
+            sphere.rotation.x -= 0.005;
+            sphere.rotation.y -= 0.01;
+            renderer.render(scene, camera);
+        }
+        animateThree();
+        
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        // AOS Initialization
         AOS.init({
             duration: 1000,
-            easing: 'ease-out',
-            once: true
+            once: true,
+            offset: 100
         });
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Preloader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('preloader').classList.add('hidden');
-            }, 1000);
-        });
-
-        // Navbar Shrink Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shrink');
-            } else {
-                navbar.classList.remove('shrink');
-            }
-
-            // Scroll Progress Bar
-            const scrollProgress = document.getElementById('scrollProgress');
-            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (window.scrollY / windowHeight) * 100;
-            scrollProgress.style.width = scrolled + '%';
-
-            // Scroll to Top Button
-            const scrollTop = document.getElementById('scrollTop');
-            if (window.scrollY > 500) {
-                scrollTop.classList.add('show');
-            } else {
-                scrollTop.classList.remove('show');
-            }
-        });
-
-        // Three.js Background
-        if (document.getElementById('canvas-container')) {
-            const canvas = document.createElement('canvas');
-            const container = document.getElementById('canvas-container');
-            container.appendChild(canvas);
-
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.position.z = 5;
-
-            // Create floating spheres
-            const spheres = [];
-            const colors = [0x00D4FF, 0x7B61FF, 0x00FFB3];
-            
-            for (let i = 0; i < 5; i++) {
-                const geometry = new THREE.IcosahedronGeometry(Math.random() * 2 + 1, 4);
-                const material = new THREE.MeshPhongMaterial({
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    emissive: colors[Math.floor(Math.random() * colors.length)],
-                    wireframe: false
-                });
-                const sphere = new THREE.Mesh(geometry, material);
-                sphere.position.x = (Math.random() - 0.5) * 15;
-                sphere.position.y = (Math.random() - 0.5) * 15;
-                sphere.position.z = (Math.random() - 0.5) * 10;
-                sphere.velocity = {
-                    x: (Math.random() - 0.5) * 0.02,
-                    y: (Math.random() - 0.5) * 0.02,
-                    z: (Math.random() - 0.5) * 0.02
-                };
-                scene.add(sphere);
-                spheres.push(sphere);
-            }
-
-            // Lighting
-            const light = new THREE.PointLight(0x00D4FF, 1);
-            light.position.set(5, 5, 5);
-            scene.add(light);
-
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
-            scene.add(ambientLight);
-
-            // Animation loop
-            function animate() {
-                requestAnimationFrame(animate);
-
-                spheres.forEach(sphere => {
-                    sphere.rotation.x += sphere.velocity.x;
-                    sphere.rotation.y += sphere.velocity.y;
-                    sphere.rotation.z += sphere.velocity.z;
-
-                    sphere.position.x += sphere.velocity.x * 50;
-                    sphere.position.y += sphere.velocity.y * 50;
-                    sphere.position.z += sphere.velocity.z * 50;
-
-                    // Boundary check
-                    if (Math.abs(sphere.position.x) > 10) sphere.velocity.x *= -1;
-                    if (Math.abs(sphere.position.y) > 10) sphere.velocity.y *= -1;
-                    if (Math.abs(sphere.position.z) > 10) sphere.velocity.z *= -1;
-                });
-
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            // Handle resize
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-
-        // Particle Background
-        if (document.getElementById('particles')) {
-            const particlesCanvas = document.getElementById('particles');
-            if (particlesCanvas.tagName === 'DIV') {
-                const canvas = document.createElement('canvas');
-                particlesCanvas.appendChild(canvas);
-                const ctx = canvas.getContext('2d');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-
-                const particles = [];
-                const particleCount = 50;
-
-                class Particle {
-                    constructor() {
-                        this.x = Math.random() * canvas.width;
-                        this.y = Math.random() * canvas.height;
-                        this.size = Math.random() * 2 + 1;
-                        this.speedX = (Math.random() - 0.5) * 0.5;
-                        this.speedY = (Math.random() - 0.5) * 0.5;
-                        this.opacity = Math.random() * 0.5 + 0.2;
-                    }
-
-                    draw() {
-                        ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-
-                    update() {
-                        this.x += this.speedX;
-                        this.y += this.speedY;
-
-                        if (this.x < 0) this.x = canvas.width;
-                        if (this.x > canvas.width) this.x = 0;
-                        if (this.y < 0) this.y = canvas.height;
-                        if (this.y > canvas.height) this.y = 0;
-                    }
-                }
-
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle());
-                }
-
-                function animateParticles() {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    particles.forEach(particle => {
-                        particle.update();
-                        particle.draw();
-                    });
-                    requestAnimationFrame(animateParticles);
-                }
-                animateParticles();
-
-                window.addEventListener('resize', () => {
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                });
-            }
-        }
-
+        
         // Counter Animation
-        function countUp(element) {
-            const target = parseInt(element.getAttribute('data-target') || element.getAttribute('data-count'));
-            const duration = 2000;
-            const increment = target / (duration / 50);
+        function animateCounter(element, target, isDecimal = false) {
             let current = 0;
-
+            const increment = target / 100;
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    element.textContent = target.toFixed(target > 100 ? 0 : 1);
+                    element.textContent = isDecimal ? target.toFixed(1) : target;
                     clearInterval(timer);
                 } else {
-                    element.textContent = Math.floor(current);
+                    element.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
                 }
-            }, 50);
+            }, 20);
         }
-
-        // Trigger counters on scroll
-        ScrollTrigger.create({
-            trigger: '#counters',
-            onEnter: () => {
-                document.querySelectorAll('[data-target], [data-count]').forEach(el => {
-                    if (el.textContent === '0') countUp(el);
-                });
-            },
-            once: true
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const isActive = faqItem.classList.contains('active');
-
-                document.querySelectorAll('.faq-item.active').forEach(item => {
-                    item.classList.remove('active');
-                });
-
-                if (!isActive) {
-                    faqItem.classList.add('active');
+        
+        const counters = document.querySelectorAll('[data-count]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    const target = parseFloat(entry.target.getAttribute('data-count'));
+                    const isDecimal = target % 1 !== 0;
+                    animateCounter(entry.target, target, isDecimal);
                 }
             });
-        });
-
-        // Initialize Swipers
-        const placementsSwiper = new Swiper('#placementsSwiper', {
-            slidesPerView: 'auto',
+        }, { threshold: 0.5 });
+        
+        counters.forEach(counter => counterObserver.observe(counter));
+        
+        // Swiper for Placements
+        new Swiper('.placement-slider', {
+            slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
             autoplay: {
@@ -2162,20 +2161,15 @@
                 clickable: true
             },
             breakpoints: {
-                320: {
-                    slidesPerView: 1
-                },
-                768: {
-                    slidesPerView: 2
-                },
-                1024: {
-                    slidesPerView: 3
-                }
+                640: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 }
             }
         });
-
-        const testimonialsSwiper = new Swiper('#testimonialsSwiper', {
-            slidesPerView: 'auto',
+        
+        // Swiper for Testimonials
+        new Swiper('.testimonial-slider', {
+            slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
             autoplay: {
@@ -2187,117 +2181,119 @@
                 clickable: true
             },
             breakpoints: {
-                320: {
-                    slidesPerView: 1
-                },
-                768: {
-                    slidesPerView: 2
-                },
-                1024: {
-                    slidesPerView: 3
-                }
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
             }
         });
-
-        // Parallax effect with GSAP
-        gsap.to('#parallax', {
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Parallax Effect
+        gsap.to('.parallax-bg', {
             scrollTrigger: {
-                trigger: '#parallax',
-                start: 'top center',
-                end: 'bottom center',
-                scrub: 1
+                trigger: '#parallax-experience',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
             },
-            y: -100,
-            duration: 1
+            y: -100
         });
-
-        // Smooth scroll for internal links
+        
+        // Course Cards 3D Tilt
+        const cards = document.querySelectorAll('.course-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
+        });
+        
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth Scroll for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
                 }
             });
         });
-
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+        
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you! We will contact you soon.');
-            e.target.reset();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
         });
-
-        // Course button interactions
-        document.querySelectorAll('.course-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                alert('Course enrollment coming soon!');
-            });
+        
+        // Floating Shapes Animation
+        gsap.to('.floating-shape', {
+            y: -50,
+            duration: 3,
+            ease: 'power1.inOut',
+            stagger: 0.5,
+            repeat: -1,
+            yoyo: true
         });
-
-        // Mobile menu close on link click
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                const navToggle = document.querySelector('.navbar-toggler');
-                if (window.getComputedStyle(navToggle).display !== 'none') {
-                    navToggle.click();
-                }
-            });
+        
+        // Text Reveal Animation
+        gsap.from('.hero-title', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.5
         });
-
-        // Add GSAP animations to elements on scroll
-        gsap.utils.toArray('.course-card').forEach((card, index) => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 80%',
-                    once: true
-                },
-                duration: 0.6,
-                delay: index * 0.1,
-                opacity: 0,
-                y: 50
-            });
+        
+        gsap.from('.hero-subtitle', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            delay: 0.8
         });
-    </script>
-
-    <!-- JSON-LD Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "MACS Academy",
-        "url": "https://macsacademy.co.in",
-        "logo": "https://macsacademy.co.in/logo.png",
-        "sameAs": [
-            "https://www.facebook.com/macsacademy",
-            "https://twitter.com/macsacademy",
-            "https://www.linkedin.com/company/macsacademy"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+91-9876543210",
-            "contactType": "Customer Service",
-            "email": "info@macsacademy.co.in"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "NM 4 & 5, Ground Floor, Opposite Union Bank, Old DLF Colony, Sector 14",
-            "addressLocality": "Gurgaon",
-            "addressRegion": "Haryana",
-            "postalCode": "122001",
-            "addressCountry": "IN"
-        },
-        "description": "Premier technology training institute offering industry-focused courses in Digital Marketing, Data Science, Full Stack Development, and more.",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "500"
-        }
-    }
+        
+        gsap.from('.hero-buttons', {
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            delay: 1.1
+        });
     </script>
 </body>
 </html>
